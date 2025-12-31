@@ -1,0 +1,127 @@
+---
+title: Changelog
+description: Track the latest updates and improvements to Raxmatullo Erkinov.
+---
+
+## Recent Updates
+
+Stay informed about new features, bug fixes, and improvements. You receive notifications for breaking changes and major releases.
+
+<Callout kind="info">
+  Check the tags on each release: `feature` for new capabilities, `bugfix` for corrections, `improvement` for enhancements, and `breaking` for backwards-incompatible updates.
+</Callout>
+
+<Update label="2024-10-15" description="v1.3.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Added support for custom brand colors in documentation themes, using your `{brandColor}` like `#3B82F6`.
+- Introduced `<Columns>` component for responsive grid layouts in MDX pages.
+
+## Improvements
+
+- Enhanced search functionality with fuzzy matching for better result accuracy.
+- Optimized page load times by `>30%` through lazy-loading components.
+
+## Bug Fixes
+
+- Fixed parsing errors with nested code blocks using 4 backticks.
+- Resolved issues with special character escaping in prose text.
+
+</Update>
+
+<Update label="2024-09-25" description="v1.2.0" tags={["feature", "bugfix"]}>
+
+## New Features
+
+- New `<Video>` and `<Iframe>` components for embedding media and external content.
+- Added `ParamField` and `ResponseField` for structured API documentation.
+
+## Bug Fixes
+
+- Corrected heading hierarchy enforcement, preventing H1 usage in body content.
+- Fixed attribute parsing for JSX components, ensuring double quotes for strings.
+
+## Improvements
+
+- Updated Mermaid diagram rendering to use safe, simple syntax only.
+
+</Update>
+
+<Update label="2024-08-10" description="v1.1.0" tags={["feature", "breaking"]}>
+
+## New Features
+
+- Full support for `<Update>` components in changelog pages with tag arrays.
+- Integrated Lucide icons across all components like `<Card icon="rocket">`.
+
+## Breaking Changes
+
+- Removed legacy `<Mermaid>` JSX component; use fenced code blocks with `mermaid` language tag instead.
+
+## Bug Fixes
+
+- Patched self-closing component errors for containers like `<Steps>`.
+
+</Update>
+
+## Upcoming Changes
+
+Preview what's coming next to plan your updates.
+
+<Columns cols={3}>
+  <Card title="v1.4.0" icon="zap" href="#recent-updates">
+    Real-time collaboration and live previews.
+  </Card>
+  <Card title="v2.0.0" icon="rocket" href="/quickstart">
+    Major rewrite with AI-assisted documentation generation.
+  </Card>
+  <Card title="Themes" icon="palette" href="/configuration">
+    Dynamic theming based on `{brandColor}`.
+  </Card>
+</Columns>
+
+## How to Stay Updated
+
+Follow these steps to monitor changes and migrate smoothly.
+
+<Steps>
+  <Step title="Subscribe" icon="bell">
+    Add the RSS feed to your reader: `https://docs.example.com/changelog.xml`.
+  </Step>
+  <Step title="Check Releases" icon="package">
+    Visit the [GitHub releases page](https://github.com/your-repo/releases) for detailed notes.
+  </Step>
+  <Step title="Test Updates" icon="play">
+    Use the staging environment at `https://staging.example.com` before production deployment.
+  </Step>
+</Steps>
+
+<ExpandableGroup>
+  <Expandable title="Migration Guide for v1.3.0" default-open="true">
+    Update your MDX files to use the new `<Columns cols={3}>` syntax.
+
+    <CodeGroup tabs="Before,After">
+    ````jsx
+    <div className="grid">...</div>
+    ````
+    ````jsx
+    <Columns cols={3}>
+      <Card title="Feature" />
+    </Columns>
+    ````
+    </CodeGroup>
+  </Expandable>
+  <Expandable title="Contribute to Changelog">
+    Submit pull requests with new `<Update>` entries following the format above.
+  </Expandable>
+</ExpandableGroup>
+
+<Tabs>
+  <Tab title="By Feature" icon="star">
+    Review `feature` tagged releases for new capabilities you can leverage immediately.
+  </Tab>
+  <Tab title="By Fixes" icon="check-circle">
+    Prioritize `bugfix` updates to resolve known issues in your setup.
+  </Tab>
+</Tabs>

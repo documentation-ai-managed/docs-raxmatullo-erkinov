@@ -1,0 +1,110 @@
+---
+title: Introduction to Raxmatullo Erkinov
+description: Discover Raxmatullo Erkinov, your default documentation space for organizing and managing project documentation with ease.
+---
+
+## Overview
+
+Raxmatullo Erkinov provides a centralized space to organize, manage, and collaborate on your project documentation. You create structured docs, customize layouts, and keep everything version-controlled without complexity. Start building your knowledge base today.
+
+<Callout kind="info">
+  Raxmatullo Erkinov supports Markdown, MDX components, and integrates seamlessly with your Git workflow.
+</Callout>
+
+## Key Features
+
+Discover the core capabilities that make Raxmatullo Erkinov your go-to documentation platform.
+
+<Columns cols={3}>
+  <Card title="Easy Organization" icon="folder" href="/docs/organization">
+    Structure your docs with nested pages, tags, and search. Find content instantly.
+  </Card>
+  <Card title="Custom Themes" icon="palette" href="/docs/themes">
+    Apply custom styles including the brand color `#3B82F6`. Tailor to your project.
+  </Card>
+  <Card title="Version Control" icon="git-branch" href="/docs/versions">
+    Track changes with Git integration. Roll back or branch docs effortlessly.
+  </Card>
+</Columns>
+
+## Quick Start
+
+Get up and running in minutes. Follow these steps to create your first documentation page.
+
+<Steps>
+  <Step title="Create Account" icon="user-plus">
+    Sign up at `https://dashboard.example.com/register` with your email.
+  </Step>
+  <Step title="New Project" icon="plus">
+    Click "New Project" and name it, e.g., "My Project Docs".
+  </Step>
+  <Step title="Add First Page" icon="file-plus">
+    Use the editor to write your `introduction.mdx`. Here's a starter:
+
+````mdx
+```javascript
+// Example script for your docs
+console.log("Welcome to Raxmatullo Erkinov!");
+```
+````
+  </Step>
+  <Step title="Publish" icon="globe">
+    Hit "Publish" to make your docs live at `https://docs.example.com/my-project`.
+  </Step>
+</Steps>
+
+<CodeGroup tabs="Markdown,MDX">
+```markdown
+# Welcome
+
+Your content here.
+```
+```mdx
+## Enhanced Content
+
+Use components like `<Callout>` for better engagement.
+```
+</CodeGroup>
+
+## Brand Guidelines
+
+Follow these guidelines to maintain consistency across your documentation.
+
+<Expandable title="Primary Brand Color" default-open="true">
+  Use `#3B82F6` as your primary blue for headings, links, and accents. It represents trust and professionalism.
+
+  Example CSS:
+
+````css
+:root {
+  --brand-primary: #3B82F6;
+}
+
+a {
+  color: var(--brand-primary);
+}
+````
+</Expandable>
+
+<Callout kind="tip">
+  Always test your theme with the brand color on different devices for optimal readability.
+</Callout>
+
+## Next Steps
+
+Ready to dive deeper? Explore these resources.
+
+<Columns cols={2}>
+  <Card title="Quickstart Guide" icon="rocket" href="/quickstart">
+    Build your first full documentation site.
+  </Card>
+  <Card title="Authentication" icon="shield" href="/authentication">
+    Secure your docs with API keys and tokens.
+  </Card>
+  <Card title="Advanced Features" icon="sparkles" href="/features">
+    Unlock collaboration and custom components.
+  </Card>
+  <Card title="Changelog" icon="git-commit" href="/changelog">
+    Stay updated with the latest releases.
+  </Card>
+</Columns>

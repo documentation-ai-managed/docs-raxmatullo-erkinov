@@ -1,0 +1,177 @@
+---
+title: Integrations and Extensions
+description: Connect Raxmatullo Erkinov with third-party tools to enhance your documentation workflow.
+---
+
+## Overview
+
+Enhance your Raxmatullo Erkinov documentation space by integrating with popular third-party services. You can automate workflows with webhooks, embed external content seamlessly, and build custom extensions using the API. These integrations help you streamline content updates, notifications, and data synchronization.
+
+<Callout kind="info">
+  Review the [permission requirements](/introduction#permissions) before setting up integrations.
+</Callout>
+
+## Supported Integrations
+
+Raxmatullo Erkinov supports direct integrations with several tools. Use the dashboard to enable them quickly.
+
+<Columns cols={3}>
+  <Card title="GitHub" icon="github" href="https://dashboard.example.com/integrations/github">
+    Sync repositories and auto-publish docs from markdown files.
+  </Card>
+  <Card title="Slack" icon="message-circle" href="https://dashboard.example.com/integrations/slack">
+    Send update notifications to your team channels.
+  </Card>
+  <Card title="Zapier" icon="zap" href="https://dashboard.example.com/integrations/zapier">
+    Connect to 5000+ apps for no-code automations.
+  </Card>
+</Columns>
+
+## Webhook Setup
+
+Set up webhooks to trigger actions on documentation events like page updates or new versions.
+
+<Steps>
+  <Step title="Create Webhook" icon="plus">
+    Navigate to <kbd>Settings</kbd> {">"} <kbd>Integrations</kbd> {">"} <kbd>Webhooks</kbd>.
+    
+    Click "New Webhook" and enter your endpoint URL.
+  </Step>
+  <Step title="Configure Events" icon="settings">
+    Select events: `page.updated`, `page.published`, `comment.added`.
+    
+    Add optional secret for signature verification.
+  </Step>
+  <Step title="Test and Save" icon="check-circle">
+    Send a test payload, then save. Monitor deliveries in the dashboard.
+  </Step>
+</Steps>
+
+Handle incoming webhooks securely. Verify signatures using the shared secret.
+
+<CodeGroup tabs="Node.js,Python">
+  ```javascript
+  const crypto = require('crypto');
+
+  app.post('/webhook', (req, res) => {
+    const signature = req.headers['x-raxmatullo-signature'];
+    const payload = JSON.stringify(req.body);
+    const expected = 'sha256=' + crypto.createHmac('sha256', 'YOUR_WEBHOOK_SECRET')
+      .update(payload).digest('hex');
+
+    if (signature === expected) {
+      console.log('Event:', req.body.event);
+      res.status(200).send('OK');
+    } else {
+      res.status(401).send('Unauthorized');
+    }
+  });
+  ```
+  ```python
+  import hmac
+  import hashlib
+  from flask import Flask, request
+
+  app = Flask(__name__)
+  SECRET = b'YOUR_WEBHOOK_SECRET'
+
+  @app.route('/webhook', methods=['POST'])
+  def webhook():
+      signature = request.headers.get('X-Raxmatullo-Signature')
+      payload = request.get_data()
+      expected = 'sha256=' + hmac.new(
+          SECRET, payload, hashlib.sha256
+      ).hexdigest()
+
+      if signature == expected:
+          print('Event:', request.json['event'])
+          return 'OK', 200
+      return 'Unauthorized', 401
+  ```
+</CodeGroup>
+
+## Embedding External Content
+
+Embed live content from external sources to enrich your docs.
+
+<Tabs>
+  <Tab title="Iframe Embed" icon="layout">
+    Use the embed block in your editor.
+    
+    ```
+    /embed https://example.com/dashboard 800px
+    ```
+    
+    <Image
+      src="https://via.placeholder.com/800x400/3B82F6/white?text=Iframe+Embed"
+      alt="Iframe embed example showing external dashboard"
+      width="800"
+      height="400"
+    />
+  </Tab>
+  <Tab title="Custom Components" icon="code">
+    Register custom embeds via API.
+    
+    <ParamField path="embed" param-type="object" required="true">
+      URL and dimensions for the embed.
+    </ParamField>
+    
+    Example payload:
+    
+    ```json
+    {
+      "url": "https://charts.example.com/graph",
+      "width": 600,
+      "height": 400
+    }
+    ```
+  </Tab>
+</Tabs>
+
+## API Access for Custom Extensions
+
+Build custom integrations using the REST API at `https://api.example.com/v1`.
+
+<ParamField header="Authorization" param-type="string" required="true">
+  Bearer `{YOUR_API_KEY}`.
+</ParamField>
+
+<ParamField query="space_id" param-type="string" required="true">
+  Your documentation space identifier.
+</ParamField>
+
+Test the API with this endpoint:
+
+```bash
+curl -H "Authorization: Bearer YOUR_API_KEY" \
+  "https://api.example.com/v1/spaces/{SPACE_ID}/pages"
+```
+
+<Response tabs="200">
+  ```json
+  {
+    "pages": [
+      {
+        "id": "page-123",
+        "title": "Introduction",
+        "updated_at": "2024-01-15T10:30:00Z"
+      }
+    ],
+    "next_cursor": null
+  }
+  ```
+</Response>
+
+<Expandable title="Advanced: Webhook Events Reference" default-open="false">
+  Common events include:
+  
+  | Event          | Description                  |
+  |----------------|------------------------------|
+  | `page.updated` | Page content or metadata changed |
+  | `page.deleted` | Page removed from space      |
+  | `comment.added`| New comment on a page        |
+</Expandable>
+
+<Callout kind="tip">
+  Start with [Quickstart](/quickstart) for API key setup, then explore these integrations.
+</Callout>

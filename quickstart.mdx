@@ -1,0 +1,161 @@
+---
+title: Quickstart Guide
+description: Set up your Raxmatullo Erkinov documentation space and create your first project in minutes.
+---
+
+## Prerequisites
+
+Before starting, ensure you have:
+
+<Callout kind="info">
+- A modern web browser like Chrome, Firefox, or Safari
+- An email address for account verification
+- Optional: GitHub account for version control integration
+</Callout>
+
+<Callout kind="tip">
+Skip ahead if you already have an account on https://dashboard.example.com.
+</Callout>
+
+## Create Your Account
+
+Follow these steps to sign up for Raxmatullo Erkinov.
+
+<Steps>
+  <Step title="Visit Dashboard" icon="globe">
+    Open your browser and navigate to https://dashboard.example.com/signup.
+  </Step>
+  <Step title="Enter Details" icon="user">
+    Provide your email, full name, and a strong password. Accept the terms of service.
+  </Step>
+  <Step title="Verify Email" icon="mail">
+    Check your inbox for a verification email and click the link to activate your account.
+  </Step>
+</Steps>
+
+## Log In to Your Space
+
+Access your documentation space with these platform-specific instructions.
+
+<Tabs>
+  <Tab title="Web Browser" icon="globe">
+    Go to https://dashboard.example.com/login. Enter your email and password.
+    
+    ```bash
+    # Optional: Use browser password manager for autofill
+    ```
+  </Tab>
+  <Tab title="Desktop App" icon="monitor">
+    Download the app from https://dashboard.example.com/download. Launch and log in.
+  </Tab>
+  <Tab title="CLI (Advanced)" icon="terminal">
+    Install the CLI tool and authenticate.
+    
+````bash
+npm install -g @raxmatullo-erkinov/cli
+raxmatullo login
+# Enter your credentials when prompted
+````
+  </Tab>
+</Tabs>
+
+## Configure Your Initial Space
+
+Set up your documentation workspace.
+
+<Steps>
+  <Step title="Select Theme" icon="palette">
+    In the dashboard, go to Settings {`>`} Appearance. Choose the brand color `#3B82F6` or customize.
+  </Step>
+  <Step title="Add Navigation" icon="menu">
+    Edit `nav.yaml` to define your sidebar structure.
+    
+````yaml
+main:
+  - Introduction
+  - Quickstart
+  - Authentication
+````
+  </Step>
+  <Step title="Enable Features" icon="settings">
+    Toggle Git sync, search, and analytics in the Space Settings panel.
+  </Step>
+</Steps>
+
+## Create Your First Documentation Project
+
+Build a sample page to test editing.
+
+<Steps>
+  <Step title="New Page" icon="plus">
+    Click "New Page" in the sidebar. Name it `my-first-project.mdx`.
+  </Step>
+  <Step title="Add Content" icon="edit-3">
+    Use MDX syntax for rich documentation. Here's a starter template:
+    
+<CodeGroup tabs="MDX,YAML">
+```mdx
+---
+title: My Project
+description: First documentation page
+---
+
+## Overview
+
+Welcome to your project.
+```
+```yaml
+title: My Project
+description: First documentation page
+```
+</CodeGroup>
+  </Step>
+  <Step title="Preview & Publish" icon="eye">
+    Click Preview to see live changes. Hit Publish to make it live.
+  </Step>
+</Steps>
+
+## Basic Navigation and Editing
+
+Master the editor interface.
+
+<ExpandableGroup>
+  <Expandable title="Sidebar Navigation" default-open="true">
+    Use the left sidebar for pages and search. Drag to reorder.
+    
+    | Action | Shortcut |
+    |--------|----------|
+    | New Page | `Ctrl`+`N` |
+    | Search | `Ctrl`+`K` |
+    | Settings | `Ctrl`+`,` |
+  </Expandable>
+  <Expandable title="Editing Tools">
+    The editor supports real-time preview, syntax highlighting, and component auto-complete.
+    
+    <Image
+      src="https://via.placeholder.com/800x400?text=Editor+Screenshot"
+      alt="Raxmatullo Erkinov editor interface showing MDX components"
+      width="800"
+      height="400"
+    />
+  </Expandable>
+</ExpandableGroup>
+
+## Next Steps
+
+Explore more with these resources.
+
+<Columns cols={2}>
+  <Card title="Authentication" icon="lock" href="/authentication">
+    Secure your space with API keys and OAuth.
+  </Card>
+  <Card title="Advanced Guides" icon="book-open" href="/introduction">
+    Dive into features and best practices.
+  </Card>
+  <Card title="Changelog" icon="git-branch" href="/changelog">
+    Stay updated with latest releases.
+  </Card>
+  <Card title="Community" icon="users" href="https://github.com/example/raxmatullo-erkinov-docs" target="_blank" cta="Join Discord">
+    Get help and share feedback.
+  </Card>
+</Columns>

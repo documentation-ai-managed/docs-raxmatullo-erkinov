@@ -1,0 +1,125 @@
+---
+title: Core Features
+description: Explore the essential capabilities of Raxmatullo Erkinov for effective documentation management.
+---
+
+## Overview
+
+Raxmatullo Erkinov provides powerful tools to organize, edit, collaborate on, and maintain your documentation. You can structure content hierarchically, apply rich formatting, share with teams, and track changes efficiently. These core features help you build a centralized knowledge base.
+
+<Columns cols={2}>
+  <Card title="Organize Folders" icon="folder" href="#document-organization">
+    Create nested folders to categorize documents logically.
+  </Card>
+  <Card title="Rich Editing" icon="edit-3" href="#editing-tools">
+    Use markdown with previews and syntax highlighting.
+  </Card>
+  <Card title="Team Collaboration" icon="users" href="#collaboration">
+    Invite members and manage permissions seamlessly.
+  </Card>
+  <Card title="Search & Versions" icon="search" href="#search-versions">
+    Find content instantly and revert changes as needed.
+  </Card>
+</Columns>
+
+## Document Organization and Folders
+
+Organize your documentation using intuitive folder structures. You create top-level folders for major categories like "API Reference" or "User Guides," then nest subfolders for finer granularity.
+
+<Steps>
+  <Step title="Create a Folder" icon="folder-plus">
+    Navigate to the root directory. Click the new folder icon and name it `guides`.
+  </Step>
+  <Step title="Nest Subfolders" icon="folder">
+    Inside `guides`, create `quickstart` and `advanced`. Drag documents between folders.
+  </Step>
+  <Step title="Reorder" icon="move">
+    Use drag-and-drop to rearrange. Folders sync across all team members.
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+  Prefix folder names with numbers like `01-introduction` for automatic sorting.
+</Callout>
+
+## Editing and Formatting Tools
+
+Edit documents with a full-featured markdown editor. You access live previews, syntax highlighting, and auto-save.
+
+<Tabs>
+  <Tab title="Basic Formatting" icon="type">
+    Use standard markdown syntax.
+
+````markdown
+# Heading 1
+## Heading 2
+
+**Bold text** and _italic text_.
+
+- List item 1
+- List item 2
+
+`Inline code` for variables like `{API_KEY}`.
+````
+  </Tab>
+  <Tab title="Advanced Tables" icon="table">
+    Create data tables easily.
+
+````markdown
+| Feature       | Description                  |
+|---------------|------------------------------|
+| Folders       | Nested organization          |
+| Search        | Full-text with highlights    |
+| Versions      | Git-based history            |
+````
+  </Tab>
+</Tabs>
+
+## Collaboration and Sharing Options
+
+Collaborate by inviting team members with role-based permissions. You share public links or embed documents.
+
+<CodeGroup tabs="Invite,Share">
+  ```javascript
+  // API to invite user (for integrations)
+  const response = await fetch('https://api.example.com/invites', {
+    method: 'POST',
+    headers: { 'Authorization': `Bearer ${YOUR_TOKEN}` },
+    body: JSON.stringify({
+      email: 'team@company.com',
+      role: 'editor'
+    })
+  });
+  ```
+  ```bash
+  # Share via CLI tool
+  raxmatullo share /docs/guides --public --password=secret123
+  ```
+</CodeGroup>
+
+<Callout kind="info">
+  Real-time cursors show who edits what, reducing conflicts.
+</Callout>
+
+## Search and Version Control Basics
+
+Search across all documents with full-text indexing. Filter by folder, tag, or date. Version control uses Git under the hood—you commit changes and view history.
+
+<Expandable title="View Version History" default-open="true">
+  Right-click a document and select "History." Compare diffs side-by-side.
+
+  ```mermaid
+  graph TD
+      A[Current] --> B[Commit 2]
+      B --> C[Commit 1]
+      C --> D[Initial]
+  ```
+</Expandable>
+
+| Feature          | Details                              |
+|------------------|--------------------------------------|
+| Search Speed     | `<100ms` for 10k+ documents          |
+| Version Limit    | Unlimited with Pro plan              |
+| Branch Support   | Preview changes before merging       |
+
+These features make Raxmatullo Erkinov your go-to for scalable documentation. Start organizing today.
